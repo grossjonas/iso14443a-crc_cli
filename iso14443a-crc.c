@@ -36,7 +36,7 @@ main(int argc, char *argv[]){
 	bool bOdd = false;
 
 	if(argc == 1){
-		printf("\nUSAGE: crc <hex-val> [-d]\n");
+		printf("USAGE: crc <hex-val> [-d]\n");
 		return EXIT_FAILURE;
 	}
 
@@ -44,14 +44,14 @@ main(int argc, char *argv[]){
 		if(0 == strcmp(argv[2], "-d")){
 			bDebug = true;
 		}else{
-			printf("\nUSAGE: crc <hex-value> [-d]\n");
+			printf("USAGE: crc <hex-value> [-d]\n");
 			return EXIT_FAILURE;
 		}
 	}
 
 	szLen = strlen(argv[1]);
 	if(1 == (szLen%2)){
-		printf("\nUSAGE: crc <hex-value> [-d] - hex value needs all nibbles(even the zero ones)");
+		printf("USAGE: crc <hex-value> [-d] - hex value needs all nibbles(even the zero ones)");
 		return EXIT_FAILURE;
 	}
 
@@ -77,7 +77,7 @@ main(int argc, char *argv[]){
 
 	if(bDebug){
 		if(argc == 2){
-			printf("\n argv[2]:");
+			printf(" argv[2]:");
 			printf("\n  %s", argv[2]);
 		}
 		printf("\n");
@@ -92,7 +92,7 @@ main(int argc, char *argv[]){
 		for(size_t i = 0; i < sizeof(btAr); i++){
 			printf("\n  hex: %02x dez: %d", btAr[i], btAr[i]);
 		}
-		printf("\n\nCRC: ");
+		printf("\n\n CRC: ");
 	}
 
 	printf("%02x%02x\n", btAr[sizeof(btAr)-2], btAr[sizeof(btAr)-1]);
