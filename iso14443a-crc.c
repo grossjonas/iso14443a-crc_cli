@@ -34,6 +34,7 @@ main(int argc, char *argv[]){
 	//bool bDebug = true;
 	size_t szLen = 0;
 	bool bOdd = false;
+	char *endptr;
 
 	if(argc == 1){
 		printf("USAGE: crc <hex-val> [-d]\n");
@@ -51,7 +52,7 @@ main(int argc, char *argv[]){
 
 	szLen = strlen(argv[1]);
 	if(1 == (szLen%2)){
-		printf("USAGE: crc <hex-value> [-d] - hex value needs all nibbles(even the zero ones)");
+		printf("USAGE: crc <hex-value> [-d] - hex value needs all nibbles(even the zero ones)\n");
 		return EXIT_FAILURE;
 	}
 
@@ -67,7 +68,12 @@ main(int argc, char *argv[]){
 		cTmp[1] = charTmp[ic-1];
 		cTmp[2] = '\0';
 
-		btAr[ib] = (byte_t)strtol(cTmp, NULL, 16);
+		btAr[ib] = (byte_t)strtol(cTmp, &endptr, 16);
+
+		if(endptr == cTmp){
+			printf("error: invalid hex-string\n");
+			return EXIT_FAILURE;
+		}
 
 		ib++;
 		ic=ic+2;
