@@ -1,0 +1,12 @@
+iso14443a-crc_cli
+
+a small tool to get an iso14443a crc on the command line
+
+Prerequisites:
+	gcc								> version 4.4.3
+	libnfc (libnfc.googlecode.com)	> version 1.4.2
+
+--------------------------------------------------------
+version 0:
+	tested with libnfc 1.5.0 (r963M)
+
